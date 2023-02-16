@@ -1,0 +1,6 @@
+"./io.obj"
+"./main.obj"
+"./strt_ccs.obj"
+"./systick.obj"
+"../tm4c.cmd"
+-llibc.a
