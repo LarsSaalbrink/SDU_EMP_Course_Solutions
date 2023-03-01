@@ -4,7 +4,7 @@
 *
 * MODULENAME.: systick.h
 *
-* PROJECT....: Assignment 1
+* PROJECT....: Assignment 2
 *
 * DESCRIPTION: Header for systick related components
 *
@@ -13,7 +13,7 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 230216  LS    Module created.
+* 230301  LS    Module created.
 *
 *****************************************************************************/
 #ifndef _SYSTICK_H
@@ -33,9 +33,8 @@ void systick_handler(void);
 /*****************************************************************************
 *   Input    : -Interrupt triggered by systick timer counter overflow
 *   Output   : -
-*   Function : Handle systick interrupt
+*   Function : Increment global variable "ticks" once every millisecond
 ******************************************************************************/
-
 void init_systick();
 /*****************************************************************************
 *   Input    : -
@@ -43,14 +42,6 @@ void init_systick();
 *   Function : Initialize the systick interrupt.
 ******************************************************************************/
 
-void delay(INT32U duration);
-/*****************************************************************************
-*   Input    : -Duration of delay in milliseconds
-*   Output   : -
-*   Function : Wait for given amount of milliseconds
-******************************************************************************/
-
 #endif // _SYSTICK_H
 
 /***************** End of module **************/
-

@@ -13,7 +13,7 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 230216  LS    Module created.
+* 230301  LS    Module created.
 *
 *****************************************************************************/
 
@@ -34,14 +34,13 @@ void init_io(void);
 *   Function : Initialize the PORTF external interrupt and configure it
 *              to trigger on PF4 rising edges
 ******************************************************************************/
-
 void GPIOFHandler(void);
 /***********************************
 * Input :   -External interrupt triggered by PORTF
-* Output :  [No output]
+* Output :  -
 * Function: Set "button_pressed" flag to true
 ***********************************/
 
 #endif  // _IO_H
 
-
+/***************** End of module **************/

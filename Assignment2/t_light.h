@@ -2,18 +2,18 @@
 * University of Southern Denmark
 * Embedded Programming (EMP)
 *
-* MODULENAME.: io.h
+* MODULENAME.: t_light.h
 *
-* PROJECT....: Assignment 1
+* PROJECT....: Assignment 2
 *
-* DESCRIPTION: Header for I/O related components
+* DESCRIPTION: Header for traffic light state machine
 *
 * Change Log:
 ******************************************************************************
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 230216  LS    Module created.
+* 230301  LS    Module created.
 *
 *****************************************************************************/
 
@@ -21,6 +21,7 @@
 #define _T_LIGHT_H
 
 /***************************** Include files *******************************/
+#include "emp_type.h"
 /*****************************    Defines    *******************************/
 enum t_light_sm_state
 {
@@ -38,7 +39,26 @@ enum colorstate_t_light
 };
 /*****************************   Constants   *******************************/
 /*****************************   Functions   *******************************/
-void t_light_sm(void);
+void regular_sm(enum colorstate_t_light* colorstate,
+                volatile INT32U* ticks,
+                INT32U* delay_start);
+/*****************************************************************************
+*   Input    : -
+*   Output   : -
+*   Function : Initialize the PORTF external interrupt and configure it
+*              to trigger on PF4 rising edges
+******************************************************************************/
 
+void t_light_sm(void);
+/*****************************************************************************
+*   Input    : -
+*   Output   : -
+*   Function : Main state machine to handle the 3 operating states:
+*              -Regular traffic light
+*              -Norwegian night mode (yellow blink)
+*              -Emergency (permanent red)
+******************************************************************************/
 
 #endif  // _T_LIGHT_H
+
+/***************** End of module **************/

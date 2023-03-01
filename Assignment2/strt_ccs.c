@@ -25,15 +25,15 @@
 /**********************************************
 * Texas Instruments Incorporated
 *
-* MODULENAME: emp.c
-* PROJECT: Assignment 1
+* MODULENAME: strt_ccs.c
+* PROJECT: Assignment 2
 * DESCRIPTION: Startup code for use with TI's Code Composer Studio
 * Change log:
 **********************************************
 * Date of Change
 * YYMMDD
 * ----------------
-* 230216 LS Vector table updated to call systick- and PORTF external interrupt handlers.
+* 230301 LS Default vector table updated to call systick- and PORTF interrupt handlers.
 *
 **********************************************/
 /***************** Include files **************/
