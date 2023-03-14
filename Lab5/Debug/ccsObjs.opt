@@ -1,0 +1,13 @@
+"./button.obj"
+"./main.obj"
+"./strt_ccs.obj"
+"./protected/devices.obj"
+"./protected/gpio.obj"
+"./protected/lcd.obj"
+"./protected/leds.obj"
+"./protected/messages.obj"
+"./protected/queue.obj"
+"./protected/swtimers.obj"
+"./protected/systick.obj"
+"../tm4c123gh6pm.cmd"
+-llibc.a
