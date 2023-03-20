@@ -13,7 +13,8 @@ C_SRCS += \
 ../protected/messages.c \
 ../protected/queue.c \
 ../protected/swtimers.c \
-../protected/systick.c 
+../protected/systick.c \
+../protected/uart0.c 
 
 C_DEPS += \
 ./protected/devices.d \
@@ -23,7 +24,8 @@ C_DEPS += \
 ./protected/messages.d \
 ./protected/queue.d \
 ./protected/swtimers.d \
-./protected/systick.d 
+./protected/systick.d \
+./protected/uart0.d 
 
 OBJS += \
 ./protected/devices.obj \
@@ -33,7 +35,8 @@ OBJS += \
 ./protected/messages.obj \
 ./protected/queue.obj \
 ./protected/swtimers.obj \
-./protected/systick.obj 
+./protected/systick.obj \
+./protected/uart0.obj 
 
 OBJS__QUOTED += \
 "protected\devices.obj" \
@@ -43,7 +46,8 @@ OBJS__QUOTED += \
 "protected\messages.obj" \
 "protected\queue.obj" \
 "protected\swtimers.obj" \
-"protected\systick.obj" 
+"protected\systick.obj" \
+"protected\uart0.obj" 
 
 C_DEPS__QUOTED += \
 "protected\devices.d" \
@@ -53,7 +57,8 @@ C_DEPS__QUOTED += \
 "protected\messages.d" \
 "protected\queue.d" \
 "protected\swtimers.d" \
-"protected\systick.d" 
+"protected\systick.d" \
+"protected\uart0.d" 
 
 C_SRCS__QUOTED += \
 "../protected/devices.c" \
@@ -63,6 +68,7 @@ C_SRCS__QUOTED += \
 "../protected/messages.c" \
 "../protected/queue.c" \
 "../protected/swtimers.c" \
-"../protected/systick.c" 
+"../protected/systick.c" \
+"../protected/uart0.c" 
 
 

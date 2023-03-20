@@ -20,6 +20,7 @@ main.obj: ../protected/messages.h
 main.obj: ../protected/devices.h
 main.obj: ../protected/leds.h
 main.obj: ../protected/lcd.h
+main.obj: ../protected/uart0.h
 main.obj: ../button.h
 main.obj: ../events.h
 main.obj: ../tmodel.h
@@ -63,6 +64,8 @@ C:/ti/ccs1220/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_stdint.h:
 ../protected/leds.h:
 
 ../protected/lcd.h:
+
+../protected/uart0.h:
 
 ../button.h:
 

@@ -21,6 +21,7 @@ ORDERED_OBJS += \
 "./protected/queue.obj" \
 "./protected/swtimers.obj" \
 "./protected/systick.obj" \
+"./protected/uart0.obj" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -153,8 +154,8 @@ Lab5.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "button.obj" "main.obj" "strt_ccs.obj" "protected\devices.obj" "protected\gpio.obj" "protected\lcd.obj" "protected\leds.obj" "protected\messages.obj" "protected\queue.obj" "protected\swtimers.obj" "protected\systick.obj" 
-	-$(RM) "button.d" "main.d" "strt_ccs.d" "protected\devices.d" "protected\gpio.d" "protected\lcd.d" "protected\leds.d" "protected\messages.d" "protected\queue.d" "protected\swtimers.d" "protected\systick.d" 
+	-$(RM) "button.obj" "main.obj" "strt_ccs.obj" "protected\devices.obj" "protected\gpio.obj" "protected\lcd.obj" "protected\leds.obj" "protected\messages.obj" "protected\queue.obj" "protected\swtimers.obj" "protected\systick.obj" "protected\uart0.obj" 
+	-$(RM) "button.d" "main.d" "strt_ccs.d" "protected\devices.d" "protected\gpio.d" "protected\lcd.d" "protected\leds.d" "protected\messages.d" "protected\queue.d" "protected\swtimers.d" "protected\systick.d" "protected\uart0.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

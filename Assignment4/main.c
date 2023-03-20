@@ -29,6 +29,7 @@
 #include "protected/leds.h"
 #include "protected/lcd.h"
 #include "protected/uart0.h"
+#include "serialDriver.h"
 #include "button.h"
 #include "events.h"
 #include "tmodel.h"
@@ -41,6 +42,8 @@
 extern volatile INT16S ticks;
 INT16S alive_timer = MILLISEC(500);
 
+extern INT8U dataBuffer[6];
+
 /*****************************   Functions   *******************************/
 
 void update_display( INT8U task_no )
@@ -51,7 +54,7 @@ void update_display( INT8U task_no )
 ******************************************************************************/
 {
   static INT8U secs, mins, hrs = 0;
-  static INT8U butt_ev;
+  static INT8U butt_ev, serial_ev;
   static BOOLEAN colon_state = 1;
   static BOOLEAN incrDir = 1;
   static BOOLEAN update = 1;
@@ -71,6 +74,29 @@ void update_display( INT8U task_no )
         break;
       case BE_LONG_PUSH:
         start_swtimer( ST_SECOND, SEB_TO_SECOND, MILLISEC( 1000 ) );   // start 1 second timer
+        break;
+    }
+  }
+
+  serial_ev = get_msg_event(SEB_SERIAL_EVENT);
+  if(serial_ev)
+  {
+    update = 1;
+
+    switch(serial_ev)
+    {
+      case SE_RX:
+        hrs = ((dataBuffer[0]-48)*10) + (dataBuffer[1]-48);
+        mins = ((dataBuffer[2]-48)*10) + (dataBuffer[3]-48);
+        secs = ((dataBuffer[4]-48)*10) + (dataBuffer[5]-48);
+        break;
+      case SE_TX:
+          dataBuffer[0] = (hrs/10) + 48;
+          dataBuffer[1] = (hrs%10) + 48;
+          dataBuffer[2] = (mins/10) + 48;
+          dataBuffer[3] = (mins%10) + 48;
+          dataBuffer[4] = (secs/10) + 48;
+          dataBuffer[5] = (secs%10) + 48;
         break;
     }
   }
@@ -146,7 +172,7 @@ int main(void)
   disable_global_int();
   init_systick();
   init_gpio();
-  uart0_init( 19200, 8, 1, 0 );
+  uart0_init( 19200, 8, 1, 0);
   enable_global_int();
 
   start_swtimer( ST_SECOND, SEB_TO_SECOND, MILLISEC( 1000 ) );
@@ -176,6 +202,7 @@ int main(void)
     button_task( TASK_BUTTON );
     delay_ms_systick(1);
     update_display( TASK_UPDATE_DISPLAY );
+    serial_task( TASK_SERIAL );
   }
 }
 

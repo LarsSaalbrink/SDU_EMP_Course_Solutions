@@ -9,5 +9,6 @@
 "./protected/queue.obj"
 "./protected/swtimers.obj"
 "./protected/systick.obj"
+"./protected/uart0.obj"
 "../tm4c123gh6pm.cmd"
 -llibc.a
